@@ -7,7 +7,7 @@ package com.javastudy.book.chapter7;
 */
 
 class SutdaCard3 {
-    final int NUM;
+    final int NUM; //지역변수일 경우 선언 즉시 초기화, 아니면 생성자
     final boolean ISKWANG;
 
     SutdaCard3() {

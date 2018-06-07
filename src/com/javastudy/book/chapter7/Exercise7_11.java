@@ -20,7 +20,8 @@ class MyTv3 {
     boolean isPowerOn;
     int channel;
     int volume;
-    int prevInt;
+    int prevInt[] = new int[10];
+    int prevIntIdx = 0;
 
     final int MAX_VOLUME = 100;
     final int MIN_VOLUME = 0;
@@ -32,7 +33,8 @@ class MyTv3 {
     }
 
     public void setChannel(int channel) {
-        this.prevInt = this.channel;
+        this.prevInt[prevIntIdx] = this.channel;
+        prevIntIdx++;
         this.channel = channel;
     }
 
@@ -45,7 +47,8 @@ class MyTv3 {
     }
 
     public void gotoPrevChannel() {
-        setChannel(prevInt);
+        prevIntIdx--;
+        this.channel = prevInt[prevIntIdx];
     }
 
 }
@@ -59,9 +62,24 @@ public class Exercise7_11 {
         System.out.println("CH:" + t.getChannel());
         t.setChannel(20);
         System.out.println("CH:" + t.getChannel());
+        t.setChannel(30);
+        System.out.println("CH:" + t.getChannel());
+        t.setChannel(40);
+        System.out.println("CH:" + t.getChannel());
+        t.setChannel(50);
+        System.out.println("CH:" + t.getChannel());
+        t.setChannel(60);
+        System.out.println("CH:" + t.getChannel());
+        t.gotoPrevChannel();
+        System.out.println("CH:" + t.getChannel());
         t.gotoPrevChannel();
         System.out.println("CH:" + t.getChannel());
         t.gotoPrevChannel();
         System.out.println("CH:" + t.getChannel());
+        t.gotoPrevChannel();
+        System.out.println("CH:" + t.getChannel());
+        t.gotoPrevChannel();
+        System.out.println("CH:" + t.getChannel());
+
     }
 }

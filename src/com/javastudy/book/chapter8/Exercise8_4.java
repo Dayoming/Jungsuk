@@ -15,7 +15,8 @@ package com.javastudy.book.chapter8;
 
    정답 : c
    Exception은 모든 예외를 다 처리할 수 있으므로 Exception의 하위 예외들보다
-   위에 있으면 안됨(?)
+   위에 있으면 안됨
+   NumberException이 Exception을 상속받기 때문에!!
 
  */
 

@@ -5,7 +5,7 @@ public class InnerEx_01 {
         int iv = 100;
         // static int cv = 100;
         // Instance 클래스에서 static 변수를 선언할 수 없다.
-        final static int CONST = 100; // final static은 상수이므로 허용
+        final static int CONST = 100; // final static은 상수이므로 허용(final이 붙은 경우엔 어떤 경우라도 static 가능)
     }
 
     static class StaticInner { // static 클래스

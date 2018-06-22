@@ -1,5 +1,10 @@
 package com.javastudy.practice.chapter11;
 
+/*
+중복을 허용하면서 저장 순서가 유지되는 컬렉션을 구현
+ArrayList, LinkedList, Vector, Stack
+*/
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;

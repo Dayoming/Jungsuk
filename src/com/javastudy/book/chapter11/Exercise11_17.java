@@ -22,12 +22,12 @@ public class Exercise11_17 {
 
             try {
                 System.out.print(">>");
-//                date = dateTimeFormatter.parse(s.nextLine());
+                date = (LocalDate) dateTimeFormatter.parse(s.nextLine());
                 break;
             } catch (Exception e) {
             }
         } while (true);
 
-//        System.out.println(dateTimeFormatter2(date));
+        System.out.println(date);
     }
 }

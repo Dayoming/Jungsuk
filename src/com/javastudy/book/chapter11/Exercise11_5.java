@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-class Student {
+class Student implements Comparable {
+    public int total;
     String name;
     int ban;
     int no;
@@ -17,6 +18,7 @@ class Student {
 
     Student(String name, int ban, int no, int kor, int eng, int math) {
         this.name = name;
+        this.ban = ban;
         this.no = no;
         this.kor = kor;
         this.eng = eng;
@@ -34,6 +36,12 @@ class Student {
     public String toString() {
         return name + ", " + ban + ", " + no + ", " + kor + ", " + eng + ", " + math + ", "
                 + getTotal() + ", " + getAverage();
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Student s = (Student)o;
+        return name.compareTo(s.name);
     }
 }
 

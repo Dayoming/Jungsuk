@@ -4,9 +4,7 @@ package com.javastudy.book.chapter11;
 * 기준으로 정렬하도록 compare(Object o1, Object o2)와 평균점수의 범위를 주면 해당 범위에 속한
 * 학생의 수를 반환하는 getGroupCount()를 완성하라. */
 
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.TreeSet;
+import java.util.*;
 
 class Student2 implements Comparable {
     String name;
@@ -58,14 +56,26 @@ class Student2 implements Comparable {
 
 public class Exercise11_6 {
     static int getGroupCount(TreeSet tset, int from, int to) {
-        return 0;
+        Student2 fromStu = new Student2("", 0, 0, from, from, from);
+        Student2 toStu = new Student2("", 0, 0, to, to, to);
+
+        Set set = tset.subSet(fromStu, toStu);
+
+        return set.size();
     }
 
     public static void main(String[] args) {
         TreeSet set = new TreeSet(new Comparator() {
             @Override
-            public int compare(Object o1, Object o2) {
-                return 0;
+            public int compare(Object o1, Object o2)
+            {
+                Student2 s = (Student2)o1;
+                Student2 s2 = (Student2)o2;
+
+                int result = (int)(s.getAverage() - s2.getAverage());
+//                int result = (int)(s2.getAverage() - s.getAverage());
+                return result;
+
             }
         });
 
@@ -79,6 +89,8 @@ public class Exercise11_6 {
 
         while(it.hasNext())
             System.out.println(it.next());
+
+        System.out.println();
 
         System.out.println("[60~69] : " + getGroupCount(set, 60, 70));
         System.out.println("[70~79] : " + getGroupCount(set, 70, 80));

@@ -32,6 +32,14 @@ class SutdaCard4 {
     public String toString() {
         return num + ( isKwang ? "K" : "");
     }
+
+    // 객체를 구별하기 위해 고유한 정수값으로 출력시켜주는 메소드
+    // reference 주소를 반환
+    // equals 메서드를 오버라이딩 하면 hashCode 메서드도 오버라이딩 해줘야 함
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
 }
 
 public class Exercise11_11 {

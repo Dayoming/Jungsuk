@@ -1,5 +1,8 @@
 package com.javastudy.book.chapter11;
 
+/* 화면으로부터 날짜를 "2007/05/11"의 형태로 입력받아서 무슨 요일인지 출력하는 프로그램을
+작성하시오. */
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;

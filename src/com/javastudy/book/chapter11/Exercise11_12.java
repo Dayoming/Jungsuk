@@ -41,6 +41,30 @@ class SutdaDeck {
         /* (1) 아래의 로직에 맞게 코드를 작성하시오.
          * 1. jokbo(HashMap)에 족보를 저장한다.
          *    두 카드의 값을 문자열로 붙여서 key로, 점수를 value로 저장한다. */
+        jokbo.put("KK",  4000);
+        jokbo.put("1010",3100);
+        jokbo.put("12",  2060);
+        jokbo.put("99",  3090);
+        jokbo.put("21",  2060);
+        jokbo.put("88",  3080);
+        jokbo.put("14",  2050);
+        jokbo.put("77",  3070);
+        jokbo.put("41",  2050);
+        jokbo.put("66",  3060);
+        jokbo.put("19",  2040);
+        jokbo.put("55",  3050);
+        jokbo.put("91",  2040);
+        jokbo.put("44",  3040);
+        jokbo.put("110", 2030);
+        jokbo.put("33",  3030);
+        jokbo.put("101", 2030);
+        jokbo.put("22",  3020);
+        jokbo.put("104", 2020);
+        jokbo.put("11",  3010);
+        jokbo.put("410", 2020);
+        jokbo.put("46",  2010);
+        jokbo.put("64",  2010);
+
     }
 
     int getPoint(Player p) {
@@ -57,6 +81,17 @@ class SutdaDeck {
          * 3. 해당하는 등급이 없으면, 아래의 공식으로 점수를 계산한다.
          *    (c1.num + c2.num) % 10 + 1000
          * 4. Player의 점수(point)에 계산한 값을 저장한다. */
+        if (c1.isKwang && c2.isKwang) {
+            result = (Integer)jokbo.get("KK");
+        } else {
+            result = (Integer)jokbo.get("" + c1.num + c2.num); // key값이 문자열로 저장되어 있음
+
+            if (result == null) {
+                result = new Integer((c1.num + c2.num) % 10 + 1000);
+            }
+        }
+
+        p.point = result.intValue();
 
         return result.intValue();
 

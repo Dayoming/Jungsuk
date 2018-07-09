@@ -9,26 +9,34 @@ package com.javastudy.book.chapter11;
 매개변수 : String yyyymmdd1 - 시작날짜
            String yyyymmdd2 - 끝 날짜 */
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+//import java.time.LocalDate;
+//import java.time.temporal.ChronoUnit;
 
 public class Exercise11_19 {
 
     public static long getDayDiff(String yyyymmdd1, String yyyymmdd2) {
         int diff = 0;
 
-            int year1 = Integer.parseInt(yyyymmdd1.substring(0, 4));
-            int month1 = Integer.parseInt(yyyymmdd1.substring(4, 6));
-            int day1 = Integer.parseInt(yyyymmdd1.substring(6, 8));
+//            return ChronoUnit.DAYS.between(day4, day3);
 
-            int year2 = Integer.parseInt(yyyymmdd2.substring(0, 4));
-            int month2 = Integer.parseInt(yyyymmdd2.substring(4, 6));
-            int day2 = Integer.parseInt(yyyymmdd2.substring(6, 8)); // 28 라인 길이 오류
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyymmdd");
+        Date date;
+        try {
+            Date firstDate = simpleDateFormat.parse(yyyymmdd1);
+            Date seconDate = simpleDateFormat.parse(yyyymmdd2);
 
-            LocalDate day3 = LocalDate.of(year1, month1, day1);
-            LocalDate day4 = LocalDate.of(year2, month2, day2);
+            long calDate = firstDate.getTime() - seconDate.getTime();
+            // getTime() 메소드는 해당 날짜가 1970년 1월 1일 00:00:00시 부터
+            // 얼마나 지났는지를 리턴한다.
+//            System.out.println(calDate);
+            long calDateDays = calDate / (24*60*60*1000);
+            return calDateDays;
 
-            return ChronoUnit.DAYS.between(day4, day3);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     public static void main(String[] args) {
